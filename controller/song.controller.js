@@ -55,7 +55,7 @@ export const deleteSong = asyncHandler(async (req, res, next) => {
     let song = await Song.findOne({ _id: id });
     if (!song) return next(ErrorMessage(404, "can't perform is action!"));
     await Song.findByIdAndDelete(id);
-    res.status(200).json({ msg: 'Deleted successfully!', id : id });
+    res.status(200).json(id);
   } catch (error) {
     next(error);
   }
