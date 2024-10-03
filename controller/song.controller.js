@@ -30,7 +30,7 @@ export const updateSong = asyncHandler(async (req, res, next) => {
     let song = await Song.findOne({ _id: id });
     console.log(req.body);
     if (!song) return next(ErrorMessage(404, "can't perform is action!"));
-    await Song.findByIdAndUpdate(
+    let response = await Song.findByIdAndUpdate(
       id,
       {
         $set: {
@@ -42,7 +42,7 @@ export const updateSong = asyncHandler(async (req, res, next) => {
       },
       { new: true }
     );
-    res.status(200).json('Music updated successfully!');
+    res.status(200).json(response);
   } catch (error) {
     next(error);
   }

@@ -4,7 +4,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
-import { userRouter } from './router/user.router.js';
 import { songRouter } from './router/song.router.js';
 const app = express();
 dotenv.config();
@@ -35,7 +34,6 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('disconnected', () => {
   console.log(`db is disconnected!`);
 });
-app.use('/api/auth', userRouter);
 app.use('/api/music', songRouter);
 app.use((err, req, res, next) => {
   let errorMessage = err.message || 'Something went wrong!';
