@@ -9,7 +9,7 @@ const app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: ['https://test-mu-eight-17.vercel.app', 'http://localhost:5173'],
+    origin: ['https://addis-five.vercel.app', 'http://localhost:5173'],
     credentials: true,
   })
 );
