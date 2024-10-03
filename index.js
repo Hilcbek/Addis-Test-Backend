@@ -9,7 +9,7 @@ const app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: ['https://addis-five.vercel.app', 'http://localhost:5173'],
+    origin: ['https://addis-music-mu.vercel.app', 'http://localhost:5173'],
     credentials: true,
   })
 );
@@ -38,5 +38,5 @@ app.use('/api/music', songRouter);
 app.use((err, req, res, next) => {
   let errorMessage = err.message || 'Something went wrong!';
   let errStatus = err.status || 500;
-  res.status(errStatus).json({ error: errorMessage });
+  res.status(errStatus).json(errorMessage);
 });
