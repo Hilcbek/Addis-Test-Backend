@@ -1,15 +1,15 @@
 {
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
   "builds": [
     {
       "src": "src/index.js",
       "use": "@vercel/node"
     }
   ],
-  "outputDirectory": "public",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ]
+  "outputDirectory": "public"
 }
