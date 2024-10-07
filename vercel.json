@@ -5,5 +5,11 @@
       "use": "@vercel/node"
     }
   ],
-  "outputDirectory": "public"
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
