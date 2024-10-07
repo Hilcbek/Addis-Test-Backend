@@ -26,7 +26,7 @@ export const updateSong = asyncHandler(async (req, res, next) => {
   try {
     let id = req.params.id;
     if (!id)
-      return next(ErrorMessage(404, 'music identifier is not provided!'));
+      return next(ErrorMessage(404, 'Music identifier is not provided!'));
     let song = await Song.findOne({ _id: id });
     console.log(req.body);
     if (!song) return next(ErrorMessage(404, "can't perform is action!"));
