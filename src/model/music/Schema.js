@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-let { model, Schema } = mongoose;
-const songSchema = new Schema({
+let { Schema } = mongoose;
+const musicSchema = new Schema({
   mname: {
     type: String,
     required: true,
@@ -14,4 +14,4 @@ const songSchema = new Schema({
     required: true,
   },
 });
-export default model('Song', songSchema);
+export default musicSchema;
