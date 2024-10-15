@@ -21,8 +21,9 @@ export const createMusic = asyncHandler(async (req, res, next) => {
 });
 export const allMusics = asyncHandler(async (req, res, next) => {
   try {
+    let { search } = req.query;
     let all = new Music();
-    const response = await all.fetchAllMusic();
+    const response = await all.fetchAllMusic(search);
     res.json(response);
   } catch (error) {
     next(error);
@@ -47,7 +48,6 @@ export const deleteMusic = asyncHandler(async (req, res, next) => {
       return next(ErrorMessage(404, 'music identifier is not provided!'));
     const music = new Music();
     const response = await music.deleteMusic(id);
-    console.log(response);
     res.json(response);
   } catch (error) {
     next(error);

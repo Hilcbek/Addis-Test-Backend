@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
-import { musicRouter } from './router/song.router.js';
+import routes from './config/routes.js';
 const app = express();
 dotenv.config();
 app.use(
@@ -32,9 +32,11 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('disconnected', () => {
   console.log(`db is disconnected!`);
 });
-app.use('/api/music', musicRouter);
+app.use('/api', routes);
+
 app.use((err, req, res, next) => {
-  let errorMessage = err.message || 'Something went wrong!';
+  console.log('this is from error middleware ', err.Result);
+  let errorMessage = err?.message || 'Something went wrong!';
   let errStatus = err.status || 500;
   res.status(errStatus).json(errorMessage);
 });
