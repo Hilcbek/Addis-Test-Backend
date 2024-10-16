@@ -16,7 +16,7 @@ const musicSchema = new Schema({
     enum: musicGenere,
   },
 });
-
+musicSchema.index({ mname: 1 });
 musicSchema.pre('save', async function (next) {
   let { mname, desc, genere } = this;
   next();
